@@ -2,7 +2,6 @@ package outbox
 
 import (
 	"context"
-	"fmt"
 	"github.com/drpcorg/nodecore/internal/config"
 	"github.com/drpcorg/nodecore/internal/storages"
 	"github.com/rs/zerolog/log"
@@ -40,11 +39,7 @@ func NewOutboxStorage(
 	if !conf.Enabled {
 		return &outboxStorage{storage: newNoopStorage()}, nil
 	}
-	storage, ok := storageRegistry.Get(conf.StorageType)
-	if !ok {
-		return nil, fmt.Errorf("unknown storage type: %s", conf.StorageType)
-	}
-
+	storage, _ := storageRegistry.Get(conf.StorageType)
 	switch storage := storage.(type) {
 	case *storages.PostgresStorage:
 		pg, err := newPostgresClient(storage.Postgres)
