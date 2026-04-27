@@ -5,6 +5,7 @@
   "properties": {
     "image": {
       "type": "object",
+      "additionalProperties": false,
       "description": "Container image configuration",
       "properties": {
         "name": {
