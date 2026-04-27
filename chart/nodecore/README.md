@@ -57,8 +57,7 @@ Create your own `values.yaml`:
 
 ```yaml
 image:
-  repository: drpcorg/nodecore
-  tag: "latest"
+  name: drpcorg/nodecore:latest
   pullPolicy: IfNotPresent
 
 replicaCount: 1
@@ -99,8 +98,7 @@ This removes all Kubernetes resources created by the chart.
 | Key                | Type   | Description                      |
 | ------------------ | ------ | -------------------------------- |
 | `replicaCount`     | int    | Number of replicas               |
-| `image.repository` | string | Container image repository       |
-| `image.tag`        | string | Image tag                        |
+| `image.name`       | string | Container image (repository:tag) |
 | `image.pullPolicy` | string | Image pull policy                |
 | `service.type`     | string | Kubernetes Service type          |
 | `service.port`     | int    | Service port                     |
